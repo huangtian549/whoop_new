@@ -22,7 +22,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfH-wT-rNK">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -72,11 +72,13 @@
                     <navigationItem key="navigationItem" id="1W5-vV-9HW">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="lYS-xv-nwK">
-                            <rect key="frame" x="207" y="7" width="187" height="30"/>
+                            <rect key="frame" x="123" y="7" width="355" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="New"/>
                                 <segment title="Hot"/>
+                                <segment title="Favorite"/>
+                                <segment title="All Time Hot"/>
                             </segments>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <connections>
@@ -653,15 +655,28 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obV-Az-6ZH">
                                 <rect key="frame" x="0.0" y="363" width="375" height="62"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zwK-Yo-wLK">
-                                        <rect key="frame" x="147" y="19" width="137" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email or Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zwK-Yo-wLK">
+                                        <rect key="frame" x="85" y="22" width="231" height="30"/>
                                         <color key="backgroundColor" red="0.94901960784313721" green="0.95686274509803915" blue="0.96078431372549022" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Bwd-K2-aX5"/>
+                                            <constraint firstAttribute="width" constant="203" id="trx-dD-59h"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="trx-dD-59h"/>
+                                            </mask>
+                                        </variation>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rU-iV-n28">
-                                        <rect key="frame" x="29" y="17" width="35" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rU-iV-n28">
+                                        <rect key="frame" x="8" y="16" width="35" height="31"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="Id5-wX-hQs"/>
+                                            <constraint firstAttribute="height" constant="31" id="QTM-Fy-roo"/>
+                                        </constraints>
                                         <state key="normal" image="Photo">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -670,14 +685,22 @@
                                             <action selector="photoButtonClick:" destination="laY-OX-8v4" eventType="touchUpInside" id="ywz-OI-abL"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acr-i5-miC">
-                                        <rect key="frame" x="314" y="20" width="42" height="27"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acr-i5-miC">
+                                        <rect key="frame" x="339" y="20" width="28" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="J02-ej-EzC"/>
+                                            <constraint firstAttribute="width" constant="28" id="Jov-AF-Vf7"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVx-rt-BNH">
-                                        <rect key="frame" x="113" y="15" width="26" height="39"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="@" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVx-rt-BNH">
+                                        <rect key="frame" x="51" y="14" width="26" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="26" id="97a-hf-chp"/>
+                                            <constraint firstAttribute="height" constant="39" id="dzz-K4-EuC"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -685,8 +708,29 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="acr-i5-miC" firstAttribute="leading" secondItem="zwK-Yo-wLK" secondAttribute="trailing" constant="23" id="2df-NE-qIN"/>
                                     <constraint firstAttribute="height" constant="72" id="3NB-ex-PIh"/>
+                                    <constraint firstAttribute="trailing" secondItem="acr-i5-miC" secondAttribute="trailing" constant="8" id="6w5-dA-TiM"/>
+                                    <constraint firstItem="5rU-iV-n28" firstAttribute="leading" secondItem="obV-Az-6ZH" secondAttribute="leading" constant="8" id="MNC-fJ-rbG"/>
+                                    <constraint firstItem="zwK-Yo-wLK" firstAttribute="leading" secondItem="OVx-rt-BNH" secondAttribute="trailing" constant="8" id="Q9L-30-t6l"/>
+                                    <constraint firstAttribute="centerY" secondItem="5rU-iV-n28" secondAttribute="centerY" id="Qcf-b0-HUV"/>
+                                    <constraint firstItem="zwK-Yo-wLK" firstAttribute="bottom" secondItem="acr-i5-miC" secondAttribute="bottom" id="TDm-gS-Ssd"/>
+                                    <constraint firstItem="acr-i5-miC" firstAttribute="leading" secondItem="zwK-Yo-wLK" secondAttribute="trailing" constant="26" id="bHJ-yB-fCu"/>
+                                    <constraint firstItem="zwK-Yo-wLK" firstAttribute="bottom" secondItem="5rU-iV-n28" secondAttribute="bottom" id="eCw-df-W91"/>
+                                    <constraint firstItem="zwK-Yo-wLK" firstAttribute="baseline" secondItem="acr-i5-miC" secondAttribute="firstBaseline" id="eYO-Bs-KMT"/>
+                                    <constraint firstAttribute="centerY" secondItem="acr-i5-miC" secondAttribute="centerY" id="fT8-c9-wD9"/>
+                                    <constraint firstItem="acr-i5-miC" firstAttribute="leading" secondItem="zwK-Yo-wLK" secondAttribute="trailing" constant="26" id="imb-iH-JKX"/>
+                                    <constraint firstAttribute="centerY" secondItem="OVx-rt-BNH" secondAttribute="centerY" id="nfv-5Y-PGU"/>
+                                    <constraint firstItem="OVx-rt-BNH" firstAttribute="leading" secondItem="5rU-iV-n28" secondAttribute="trailing" constant="8" id="qQB-cG-RI7"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="TDm-gS-Ssd"/>
+                                        <exclude reference="eYO-Bs-KMT"/>
+                                        <exclude reference="bHJ-yB-fCu"/>
+                                        <exclude reference="imb-iH-JKX"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.95686274509803915" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
@@ -960,6 +1004,9 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.64999999999999969"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="adm-Sc-8Q6" kind="show" id="ZTg-2z-JPR"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1167,6 +1214,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="35P-N4-up8"/>
+        <segue reference="UoM-tl-3ag"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
