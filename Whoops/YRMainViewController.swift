@@ -18,7 +18,7 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    //@IBOutlet weak var segmentedControl: UISegmentedControl!
     
     
     let identifier = "cell"
@@ -53,7 +53,7 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
         locationManager.startUpdatingLocation()
         userId = FileUtility.getUserId()
         setupViews()
-        self.hotClick();
+       // self.hotClick();
         
     }
     
@@ -283,7 +283,7 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
     
    
 
-    @IBAction func hotClick(){
+    /*@IBAction func hotClick(){
         var selectIndex = segmentedControl.selectedSegmentIndex
         if selectIndex == 1{
             self.type = "hot"
@@ -296,7 +296,7 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
             self.dataArray = NSMutableArray()
             loadData("new")
         }
-    }
+    }*/
     
     func ios8()->Bool{
         let version:NSString = UIDevice.currentDevice().systemVersion
