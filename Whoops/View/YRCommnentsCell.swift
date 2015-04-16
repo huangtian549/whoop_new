@@ -47,9 +47,7 @@ class YRCommnentsCell: UITableViewCell {
             self.likeHot = self.data.stringAttributeForKey("likeNum").toInt()!
         }
         
-        if self.data.stringAttributeForKey("dislikeNum") != NSNull(){
-            self.likeHot = self.likeHot - self.data.stringAttributeForKey("dislikeNum").toInt()!
-        }
+        
         
         self.likeHotLabel.text = String(self.likeHot)
         
@@ -64,8 +62,8 @@ class YRCommnentsCell: UITableViewCell {
         myalert.show()*/
         var id = self.data.stringAttributeForKey("id")
         var like = self.data.stringAttributeForKey("likeNum")
-        if self.likeClick {
-            var url = FileUtility.getUrlDomain() + "comment/like?id=\(id)"
+
+            var url = FileUtility.getUrlDomain() + "comment/like?id=\(id)&uid=\(FileUtility.getUserId())"
             YRHttpRequest.requestWithURL(url,completionHandler:{ data in
                 
                 if data as! NSObject == NSNull()
@@ -73,27 +71,19 @@ class YRCommnentsCell: UITableViewCell {
                     UIView.showAlertView("提示",message:"加载失败")
                     return
                 }
-                
+                var result:Int = data["result"] as! Int
+                self.likeHotLabel!.text = "\(result)"
                 
             })
             
-            self.likeHotLabel.text = String(self.likeHot + 1)
-            self.likeClick = false
-        }
         
     }
     
     @IBAction func unlikeImageClick(){
-        /*let myalert = UIAlertView()
-        myalert.title = "准备好了吗"
-        myalert.message = "准备好开始了吗？"
-        myalert.addButtonWithTitle("Ready, go!")
-        myalert.show()*/
         
         var id = self.data.stringAttributeForKey("id")
         var dislike = self.data.stringAttributeForKey("dislikeNum")
-        if self.likeClick {
-            var url = FileUtility.getUrlDomain() + "comment/unlike?id=\(id)"
+            var url = FileUtility.getUrlDomain() + "comment/unlike?id=\(id)&uid=\(FileUtility.getUserId())"
             YRHttpRequest.requestWithURL(url,completionHandler:{ data in
                 
                 if data as! NSObject == NSNull()
@@ -101,13 +91,12 @@ class YRCommnentsCell: UITableViewCell {
                     UIView.showAlertView("提示",message:"加载失败")
                     return
                 }
-                
+                var result:Int = data["result"] as! Int
+                self.likeHotLabel!.text = "\(result)"
                 
             })
             
-            self.likeHotLabel.text = String(self.likeHot - 1)
-            self.likeClick = false
-        }
+
     }
 
     

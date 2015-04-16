@@ -13,7 +13,7 @@ import CoreLocation
 
 
 class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, CLLocationManagerDelegate, YRRefreshViewDelegate{
-
+    
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,7 +22,7 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     
     let identifier = "cell"
-//    var tableView:UITableView?
+    //    var tableView:UITableView?
     var dataArray = NSMutableArray()
     var page :Int = 1
     var refreshView:YRRefreshView?
@@ -33,27 +33,27 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
     var school:Int = 0
     var userId:String = "0"
     
-    var type:String = "new"
+    var type:Int = 0
     
- 
+    let itemArray = ["最新","最热","收藏","历史最热"]
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         
-       
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         if(ios8()){
             if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined {
-            locationManager.requestWhenInUseAuthorization()
+                locationManager.requestWhenInUseAuthorization()
             }
         }
         locationManager.startUpdatingLocation()
         userId = FileUtility.getUserId()
         setupViews()
-       // self.hotClick();
+        // self.hotClick();
         
     }
     
@@ -75,15 +75,36 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
     {
         var width = self.view.frame.size.width
         var height = self.view.frame.size.height
-//        self.tableView = UITableView(frame:CGRectMake(0,0,width,height-49))
+        //        self.tableView = UITableView(frame:CGRectMake(0,0,width,height-49))
         self.tableView!.delegate = self;
         self.tableView!.dataSource = self;
-        //self.tableView!.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-        //self.tableView.separatorColor = UIColor.redColor()
         
-        var headerLabel = UILabel(frame: CGRectMake(0, 0, self.view.bounds.size.width, 30))
-        headerLabel.text = "whoop"
-        self.tableView.tableHeaderView = headerLabel
+        var myTabbar :UIView = UIView(frame: CGRectMake(0,49,width,49))
+        myTabbar.backgroundColor = UIColor.redColor()
+        self.view.addSubview(myTabbar)
+        
+        var count = itemArray.count
+        
+        for var index = 0; index < count; index++
+        {
+            var btnWidth = (CGFloat)(index*80)
+            var button  = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+            button.frame = CGRectMake(btnWidth, 0,80,49)
+            button.tag = index+100
+            var title = itemArray[index]
+            button.setTitle(title, forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected)
+            
+            button.addTarget(self, action: "tabBarButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+            myTabbar.addSubview(button)
+            if index == 0
+            {
+                button.selected = true
+            }
+        }
+        
+        
         
         var nib = UINib(nibName:"YRJokeCell", bundle: nil)
         
@@ -138,7 +159,7 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
         
     }
     
-    func loadData(type:String)
+    func loadData(type:Int)
     {
         var url = urlString(type)
         self.refreshView!.startLoading()
@@ -168,20 +189,28 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     
-    func urlString(typeString:String)->String
+    func urlString(type:Int)->String
     {
         var url:String = FileUtility.getUrlDomain()
         if(school == 0){
-            if typeString == "new"{
+            if type == 0 {
                 url += "post/listNewByLocation?latitude=\(lat)&longitude=\(lng)&pageNum=\(page)"
-            }else{
+            }else if (type == 1){
                 url += "post/listHotByLocation?latitude=\(lat)&longitude=\(lng)&pageNum=\(page)"
+            }else if (type == 2){
+                url += "favorPost/list?uid=\(FileUtility.getUserId())&pageNum=\(page)"
+            }else {
+                url += "post/listHotAll?pageNum=\(page)"
             }
         }else{
-            if typeString == "new" {
+            if type == 0 {
                 url += "post/listNewBySchool?schoolId=\(school)&pageNum=\(page)"
-            }else{
+            }else if (type == 1){
                 url += "post/listHotBySchool?schoolId=\(school)&pageNum=\(page)"
+            }else if (type == 2){
+                url += "favorPost/list?uid=\(FileUtility.getUserId())&pageNum=\(page)"
+            }else {
+                url += "post/listHotAll?pageNum=\(page)"
             }
         }
         
@@ -231,21 +260,21 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
         commentsVC.jokeId = data.stringAttributeForKey("id")
         commentsVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(commentsVC, animated: true)
-    
-//    self.performSegueWithIdentifier("showComment", sender:data.stringAttributeForKey("id"))
-    
+        
+        //    self.performSegueWithIdentifier("showComment", sender:data.stringAttributeForKey("id"))
+        
     }
-
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        var postId:String = sender as String;
-//        
-//        var commentViewController:YRCommentsViewController =  segue.destinationViewController as YRCommentsViewController;
-//        commentViewController.postId = postId
-//    }
-
     
-
-
+    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    //        var postId:String = sender as String;
+    //
+    //        var commentViewController:YRCommentsViewController =  segue.destinationViewController as YRCommentsViewController;
+    //        commentViewController.postId = postId
+    //    }
+    
+    
+    
+    
     func refreshView(refreshView:YRRefreshView,didClickButton btn:UIButton)
     {
         //refreshView.startLoading()
@@ -263,7 +292,7 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
         
     }
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!){
-   
+        
         var location:CLLocation = locations[locations.count-1] as! CLLocation
         
         if (location.horizontalAccuracy > 0) {
@@ -272,7 +301,7 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
             loadData(self.type)
             self.locationManager.stopUpdatingLocation()
             
-          
+            
         }
     }
     
@@ -281,22 +310,52 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
         //        self.textLabel.text = "get location error"
     }
     
-   
-
-    /*@IBAction func hotClick(){
-        var selectIndex = segmentedControl.selectedSegmentIndex
-        if selectIndex == 1{
-            self.type = "hot"
-            page = 1
-            self.dataArray = NSMutableArray()
-            loadData("hot")
-        }else{
-            self.type = "new"
-            page = 1
-            self.dataArray = NSMutableArray()
-            loadData("new")
+    
+    func tabBarButtonClicked(sender:UIButton)
+    {
+        var index = sender.tag
+        
+        for var i = 0;i<4;i++
+        {
+            var button = self.view.viewWithTag(i+100) as! UIButton
+            if button.tag == index
+            {
+                button.selected = true
+            }
+            else
+            {
+                button.selected = false
+            }
         }
-    }*/
+        
+        //        UIView.animateWithDuration( 0.3,
+        //            animations: {
+        //
+        //                self.slider!.frame = CGRectMake(CGFloat(index-100)*80,0,80,49)
+        //
+        //        })
+        self.title = itemArray[index-100] as String
+        page = 1
+        self.dataArray = NSMutableArray()
+        loadData(index-100)
+        
+    }
+    
+    
+    //    @IBAction func hotClick(){
+    //        var selectIndex = segmentedControl.selectedSegmentIndex
+    //        if selectIndex == 1{
+    //            self.type = "hot"
+    //            page = 1
+    //            self.dataArray = NSMutableArray()
+    //            loadData("hot")
+    //        }else{
+    //            self.type = "new"
+    //            page = 1
+    //            self.dataArray = NSMutableArray()
+    //            loadData("new")
+    //        }
+    //    }
     
     func ios8()->Bool{
         let version:NSString = UIDevice.currentDevice().systemVersion
@@ -309,6 +368,6 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
         
     }
-
+    
     
 }

@@ -32,7 +32,6 @@ class YRJokeCell: UITableViewCell {
     
     var mainWidth:CGFloat = 0
     
-    var likeHot:String = "0"
     var postId:String = ""
     //let avatarPlaceHolder = UIImage(named: "avatar.jpg")
     
@@ -91,14 +90,13 @@ class YRJokeCell: UITableViewCell {
             self.likeHotLabel!.text = "0"
         }else{
             self.likeHotLabel!.text = self.data.stringAttributeForKey("likeNum")
-            likeHot = self.data.stringAttributeForKey("likeNum")
         }
             
-        if self.data.stringAttributeForKey("dislikeNum") == NSNull(){
-            self.dateTimeLabel!.text = "0"
-        }else{
-            self.dateTimeLabel!.text = self.data.stringAttributeForKey("dislikeNum")
-        }
+//        if self.data.stringAttributeForKey("dislikeNum") == NSNull(){
+//            self.dateTimeLabel!.text = "0"
+//        }else{
+//            self.dateTimeLabel!.text = self.data.stringAttributeForKey("dislikeNum")
+//        }
         
         
         var commentCount = self.data.stringAttributeForKey("commentCount") as String
@@ -172,8 +170,7 @@ class YRJokeCell: UITableViewCell {
     var unLikeClick:Bool = true
     
     @IBAction func likeImageClick(){
-        if likeCilcke {
-            var url = FileUtility.getUrlDomain() + "post/like?id=\(postId)&likeNum=\(likeHot)"
+            var url = FileUtility.getUrlDomain() + "post/like?id=\(postId)&uid=\(FileUtility.getUserId())"
             
             YRHttpRequest.requestWithURL(url,completionHandler:{ data in
                 
@@ -182,21 +179,17 @@ class YRJokeCell: UITableViewCell {
                     UIView.showAlertView("提示",message:"加载失败")
                     return
                 }
+                var result:Int = data["result"] as! Int
+                self.likeHotLabel!.text = "\(result)"
 
                 
             })
-            
-            var intLikeHot:Int =  likeHot.toInt()!
-            self.likeHotLabel!.text = String(intLikeHot + 1)
-            
-            likeCilcke = false
-        }
+        
         
     }
     
     @IBAction func unlikeImageClick(){
-        if likeCilcke {
-            var url = FileUtility.getUrlDomain() + "post/unlike?id=\(postId)&dislikeNum=\(likeHot)"
+            var url = FileUtility.getUrlDomain() + "post/unlike?id=\(postId)&uid=\(FileUtility.getUserId())"
             
             YRHttpRequest.requestWithURL(url,completionHandler:{ data in
                 
@@ -205,15 +198,12 @@ class YRJokeCell: UITableViewCell {
                     UIView.showAlertView("提示",message:"加载失败")
                     return
                 }
-                
+                var result:Int = data["result"] as! Int
+                self.likeHotLabel!.text = "\(result)"
                 
             })
             
-            var intLikeHot:Int =  likeHot.toInt()!
-            self.likeHotLabel!.text = String(intLikeHot - 1)
-            
-            likeCilcke = false
-        }
+
     }
     
 }

@@ -38,6 +38,8 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
     var latitude:Double = 0.0
     var longitude:Double = 0.0
     
+    let MAX_WORD_COUNT = 100
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -146,7 +148,7 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
     
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        let MAX_WORD_COUNT = 50
+        
         println(textView.text)
         println(count(textView.text))
         println(text)
