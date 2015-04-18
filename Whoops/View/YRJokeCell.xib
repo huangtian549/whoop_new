@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -14,12 +14,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jo1-pm-TMV">
-                        <rect key="frame" x="8" y="55" width="270" height="202"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="202" id="G0f-Mf-Of3"/>
-                        </constraints>
-                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFH-9f-fRa">
                         <rect key="frame" x="286" y="11" width="35" height="35"/>
                         <constraints>
@@ -117,21 +111,22 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v3p-Ue-dcd">
+                        <rect key="frame" x="14" y="63" width="250" height="145"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="H9I-yD-XFR" firstAttribute="leading" secondItem="jo1-pm-TMV" secondAttribute="trailing" constant="20" id="1KY-qt-sAN"/>
                     <constraint firstItem="vFH-9f-fRa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="4QN-9o-xzp"/>
                     <constraint firstAttribute="centerY" secondItem="H9I-yD-XFR" secondAttribute="centerY" id="54g-fn-hK8"/>
                     <constraint firstItem="vFH-9f-fRa" firstAttribute="leading" secondItem="amO-0b-sdb" secondAttribute="trailing" constant="8" id="68z-p5-9FP"/>
-                    <constraint firstItem="VB7-a2-rsE" firstAttribute="top" secondItem="jo1-pm-TMV" secondAttribute="bottom" constant="8" id="88K-Di-nml"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vFH-9f-fRa" secondAttribute="trailing" constant="14" id="LFz-nk-n9l"/>
                     <constraint firstItem="VB7-a2-rsE" firstAttribute="top" secondItem="nlm-bn-DKo" secondAttribute="bottom" constant="8" id="Oac-e2-HrT"/>
                     <constraint firstAttribute="trailingMargin" secondItem="H9I-yD-XFR" secondAttribute="trailing" constant="8" id="U94-65-D6n"/>
                     <constraint firstItem="VB7-a2-rsE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="afF-Ma-0G7"/>
                     <constraint firstItem="amO-0b-sdb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="afo-mZ-ACD"/>
                     <constraint firstItem="amO-0b-sdb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="eso-Xq-Z4h"/>
-                    <constraint firstItem="jo1-pm-TMV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="pbw-nK-LWZ"/>
                     <constraint firstAttribute="bottomMargin" secondItem="VB7-a2-rsE" secondAttribute="bottom" constant="-6" id="rZp-zv-Q5Z"/>
                     <constraint firstItem="VB7-a2-rsE" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="sc2-WM-c3b"/>
                     <constraint firstAttribute="trailingMargin" secondItem="nlm-bn-DKo" secondAttribute="trailing" constant="14" id="yBY-Fh-R7A"/>
@@ -141,11 +136,11 @@
             <connections>
                 <outlet property="bottomView" destination="VB7-a2-rsE" id="DF5-AL-IWV"/>
                 <outlet property="commentLabel" destination="iYk-1Q-8ds" id="nD7-We-Xqp"/>
+                <outlet property="containsPicView" destination="v3p-Ue-dcd" id="EsT-aU-9Dj"/>
                 <outlet property="contentLabel" destination="amO-0b-sdb" id="9hT-od-NiI"/>
                 <outlet property="dateTimeLabel" destination="3BP-gT-iGq" id="Xzf-if-2j6"/>
                 <outlet property="likeHotLabel" destination="H9I-yD-XFR" id="xFi-ah-bcm"/>
                 <outlet property="nickLabel" destination="5xu-1N-A5k" id="6fl-xc-FYD"/>
-                <outlet property="pictureView" destination="jo1-pm-TMV" id="ANx-Go-lgA"/>
             </connections>
             <point key="canvasLocation" x="218.5" y="183"/>
         </tableViewCell>

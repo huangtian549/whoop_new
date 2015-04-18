@@ -12,10 +12,11 @@ import UIKit
 class YRJokeCell: UITableViewCell {
     
 //    @IBOutlet var avatarView:UIImageView?
-    @IBOutlet var pictureView:UIImageView?
+
     @IBOutlet var nickLabel:UILabel?
     @IBOutlet var contentLabel:UILabel?
  
+    @IBOutlet var containsPicView: UIView!
     @IBOutlet var commentLabel:UILabel?
     @IBOutlet var bottomView:UIView?
     
@@ -46,8 +47,8 @@ class YRJokeCell: UITableViewCell {
         self.selectionStyle = .None
         mainWidth = UIScreen.mainScreen().bounds.width
        
-        var tap = UITapGestureRecognizer(target: self, action: "imageViewTapped:")
-        self.pictureView!.addGestureRecognizer(tap)
+//        var tap = UITapGestureRecognizer(target: self, action: "imageViewTapped:")
+//        self.pictureView!.addGestureRecognizer(tap)
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -71,18 +72,58 @@ class YRJokeCell: UITableViewCell {
         var imgSrc = self.data.stringAttributeForKey("image") as NSString
         if imgSrc.length == 0
         {
-            self.pictureView!.hidden = true
+            self.containsPicView!.hidden = true
             //self.bottomView!.setY(self.contentLabel!.bottom())
         }
         else
         {
             
-            var imagURL = FileUtility.getUrlImage() + (imgSrc as String)
-            self.pictureView!.hidden = false
-            self.pictureView!.setImage(imagURL,placeHolder: UIImage(named: "avatar.jpg"))
-            self.largeImageURL = FileUtility.getUrlDomain() + (imgSrc as String)
-            //self.pictureView!.setY(self.contentLabel!.bottom()+5)
-            //self.bottomView!.setY(self.pictureView!.bottom())
+            var imgUrls:[String] = imgSrc.componentsSeparatedByString(",") as! [String]
+            var count = imgUrls.count
+            if imgUrls.count <= 3 {
+                var imgWidth = (mainWidth - 10 - 10 - 20 - 100)/CGFloat(count)
+                var i = 0
+                for imgUrl in imgUrls {
+                    var imgView = UIImageView()
+                    var tap = UITapGestureRecognizer(target: self, action: "imageViewTapped:")
+                    imgView.addGestureRecognizer(tap)
+                    var imagURL = FileUtility.getUrlImage() + imgUrl
+                    containsPicView.hidden = false
+                    imgView.setImage(imagURL,placeHolder: UIImage(named: "Logoo.png"))
+                    
+                    i++
+                    var tempWidth = 10 * i + (i-1) * Int(imgWidth)
+                    imgView.frame = CGRectMake(CGFloat(tempWidth), height , imgWidth, imgWidth)
+                    self.containsPicView.addSubview(imgView)
+                    
+                }
+            }else {
+                
+                var imgWidth = (mainWidth - 10 - 10 - 20 - 100)/CGFloat(count >= 3 ? 3 : count)
+                var i = 0
+                for imgUrl in imgUrls {
+                    var imgView = UIImageView()
+                    var tap = UITapGestureRecognizer(target: self, action: "imageViewTapped:")
+                    imgView.addGestureRecognizer(tap)
+                    var imagURL = FileUtility.getUrlImage() + imgUrl
+                    containsPicView.hidden = false
+                    imgView.setImage(imagURL,placeHolder: UIImage(named: "Logoo.png"))
+                    
+                    i++
+                    
+                    if i <= 3 {
+                        var tempWidth = 10 * i + (i-1) * Int(imgWidth)
+                        imgView.frame = CGRectMake(CGFloat(tempWidth), height , imgWidth, imgWidth)
+                    }else{
+                        var tempWidth = 10 * (i-3) + (i-4) * Int(imgWidth)
+                        imgView.frame = CGRectMake(CGFloat(tempWidth), height + imgWidth + 10, imgWidth, imgWidth)
+                    }
+                    self.containsPicView.addSubview(imgView)
+                    
+                }
+
+                
+            }
         }
         
        

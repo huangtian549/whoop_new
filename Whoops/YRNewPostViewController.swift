@@ -25,12 +25,15 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var nickNameText: UITextField!
     
+    @IBOutlet weak var toolView: UIView!
     @IBOutlet weak var countWordLabel: UILabel!
     @IBOutlet weak var sendButton: UIBarButtonItem!
     let locationManager = CLLocationManager()
     
     
+    @IBOutlet var toolViewHeighContraint: NSLayoutConstraint!
     var imgView = UIImageView()
+    var imgList = [UIImageView]()
     var img = UIImage()
     
     var schoolId:String = "0"
@@ -83,6 +86,10 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
 //        actionSheet.addButtonWithTitle("取消")
 //        actionSheet.addButtonWithTitle("打开照相机")
 //        actionSheet.addButtonWithTitle("从手机相册选择")
+        if imgList.count >= 6 {
+            UIView.showAlertView("Warning",message:"The max count of photos can not be more than 6")
+            return
+        }
         actionSheet.addButtonWithTitle("Cancel")
         actionSheet.addButtonWithTitle("Camera")
         actionSheet.addButtonWithTitle("Photo Library")
@@ -102,7 +109,7 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
             UIView.showAlertView("Warning",message:"The Content should not be empty")
             return
         }else{
-            if imgView.image == nil {
+            if imgList.count == 0 {
                 createNewPost()
             }else{
                 postWithPic()
@@ -140,7 +147,28 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]){
         
         img = info[UIImagePickerControllerEditedImage] as! UIImage
+        var imgView = UIImageView()
         imgView.image = img
+        if imgList.count < 6 {
+            imgList.append(imgView)
+            var width = self.view.frame.size.width
+            var height = self.view.frame.size.height
+            var imgWidth = (width - 10 - 10 - 20)/3
+            if imgList.count <= 3 {
+                var tempWidth = 10 * imgList.count + (imgList.count-1) * Int(imgWidth)
+                imgView.frame = CGRectMake(CGFloat(tempWidth), height/2  - imgWidth, imgWidth, imgWidth)
+                self.view.addSubview(imgView)
+//                toolView.frame = CGRectMake(0, height/2+200, width-300, 62)
+                toolViewHeighContraint.setValue(200, forKey: "Constant")
+            }else{
+                var tempWidth = 10 * (imgList.count-3) + (imgList.count-4) * Int(imgWidth)
+                imgView.frame = CGRectMake(CGFloat(tempWidth), height/2  + 10, imgWidth, imgWidth)
+                self.view.addSubview(imgView)
+                toolViewHeighContraint.setValue(100, forKey: "Constant")
+                
+            }
+            
+        }
         
         picker.dismissViewControllerAnimated(true, completion: nil)
         
@@ -149,10 +177,6 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         
-        println(textView.text)
-        println(count(textView.text))
-        println(text)
-        println(count(text))
         
         var formerWordcount = count(textView.text)
         var addWordCount = count(text)
@@ -320,16 +344,16 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
         //        if paths != nil {
         //            for path in paths! {
         let filename = "file"
-        let data:NSData = UIImageJPEGRepresentation(imgView.image, 0.3)
-        //                let mimetype = mimeTypeForPath(path)
+        for img in imgList {
+            let data:NSData = UIImageJPEGRepresentation(img.image, 0.3)
+    
         
-        body.appendString("--\(boundary)\r\n")
-        body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
-        body.appendString("Content-Type: application/octet-stream\r\n\r\n")
-        body.appendData(data)
-        body.appendString("\r\n")
-        //            }
-        //        }
+            body.appendString("--\(boundary)\r\n")
+            body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+            body.appendString("Content-Type: application/octet-stream\r\n\r\n")
+            body.appendData(data)
+            body.appendString("\r\n")
+        }
         
         body.appendString("--\(boundary)--\r\n")
         return body

@@ -117,7 +117,7 @@ class FileUtility: NSObject {
     }
     
     class func getUrlDomain()->String{
-        let urlDomain = "http://localhost:8080/whoops/"
+        let urlDomain = "http://104.131.91.181:8080/whoops/"
         return urlDomain
     }
     
