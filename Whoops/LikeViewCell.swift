@@ -23,7 +23,11 @@ class LikeViewCell: UITableViewCell {
     
     override func layoutSubviews(){
         super.layoutSubviews()
-        self.title.text = "Someone just liked your post!"
+        
+        if self.data.stringAttributeForKey("msg") != NSNull() {
+            self.title.text = self.data.stringAttributeForKey("msg")
+        }
+        
         
     }
     
