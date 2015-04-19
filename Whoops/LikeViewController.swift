@@ -29,15 +29,13 @@ class LikeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func load_Data(){
-        //var url = FileUtility.getUrlDomain() + "msg/getMsgByUId?uid=\(self.uid)&pageNum=\(self.page)"
-        var url = "http://104.131.91.181:8080/whoops/msg/getMsgByUId?uid=\(self.uid)&pageNum=\(self.page)"
+        var url = FileUtility.getUrlDomain() + "msg/getMsgByUId?uid=97&pageNum=\(self.page)"
+        //var url = "http://104.131.91.181:8080/whoops/msg/getMsgByUId?uid=97&pageNum=1"
         YRHttpRequest.requestWithURL(url,completionHandler:{ data in
             
             if data as! NSObject == NSNull()
             {
-                let myAltert=UIAlertController(title: "Alert", message: "Refresh Failed", preferredStyle: UIAlertControllerStyle.Alert)
-                myAltert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(myAltert, animated: true, completion: nil)
+                UIView.showAlertView("Alert",message:"Loading Failed")
                 return
             }
             
@@ -64,15 +62,29 @@ class LikeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self._db.count
-        //return 10
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? LikeViewCell
         var index = indexPath.row
         cell?.data = _db[index] as! NSDictionary
-        //cell?.title.text = "Hello World!!"
         return cell!
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var index = indexPath.row
+        var data = self._db[index] as! NSDictionary
+        var commentsVC = YRCommentsViewController(nibName :nil, bundle: nil)
+        commentsVC.jokeId = data.stringAttributeForKey("id")
+        commentsVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(commentsVC, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        var index = indexPath.row
+        var data = self._db[index] as! NSDictionary
+        return  LikeViewCell.cellHeightByData(data)
     }
 
     /*

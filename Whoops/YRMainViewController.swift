@@ -334,7 +334,7 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
         //                self.slider!.frame = CGRectMake(CGFloat(index-100)*80,0,80,49)
         //
         //        })
-        self.title = itemArray[index-100] as String
+        //self.title = itemArray[index-100] as String
         page = 1
         self.dataArray = NSMutableArray()
         self.type = index - 100

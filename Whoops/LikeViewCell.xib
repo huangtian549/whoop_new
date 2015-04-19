@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -14,13 +14,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77c-vx-B04">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77c-vx-B04">
                         <rect key="frame" x="8" y="8" width="227" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGC-bt-sSz">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGC-bt-sSz">
                         <rect key="frame" x="8" y="44" width="227" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -37,13 +37,12 @@
                 <constraints>
                     <constraint firstItem="R9M-It-ZkA" firstAttribute="leading" secondItem="gGC-bt-sSz" secondAttribute="trailing" constant="8" id="0I4-O3-BL9"/>
                     <constraint firstItem="R9M-It-ZkA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="4Nm-XW-yOl"/>
-                    <constraint firstItem="gGC-bt-sSz" firstAttribute="top" secondItem="77c-vx-B04" secondAttribute="bottom" constant="14" id="IXh-Vd-lgS"/>
+                    <constraint firstItem="77c-vx-B04" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="BRH-ya-BGp"/>
                     <constraint firstItem="R9M-It-ZkA" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="Rfd-8f-sPd"/>
                     <constraint firstItem="gGC-bt-sSz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="V3W-5b-89h"/>
-                    <constraint firstItem="R9M-It-ZkA" firstAttribute="leading" secondItem="77c-vx-B04" secondAttribute="trailing" constant="8" id="aj6-62-kFr"/>
                     <constraint firstItem="R9M-It-ZkA" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="bHg-2B-hwk"/>
-                    <constraint firstItem="77c-vx-B04" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="cVh-9x-o8d"/>
-                    <constraint firstItem="77c-vx-B04" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="lLN-WF-qcm"/>
+                    <constraint firstItem="77c-vx-B04" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="hEJ-iw-lnG"/>
+                    <constraint firstItem="R9M-It-ZkA" firstAttribute="leading" secondItem="77c-vx-B04" secondAttribute="trailing" constant="8" id="hnP-yL-0Eh"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
