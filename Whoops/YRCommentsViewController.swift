@@ -68,6 +68,8 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
         self.sendView?.frame = CGRectMake(0, height - 50 , width, 50)
         self.view.addSubview(sendView!)
 
+        let btn = UIBarButtonItem(image: UIImage(named: "Like.png"), landscapeImagePhone: UIImage(named: "Like.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "btnAuditClicked")
+        self.navigationItem.rightBarButtonItem = btn
         
         loadPostData()
         
@@ -140,7 +142,7 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
 
     
     
-    func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
@@ -170,9 +172,9 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
 //    }
 
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
-        var index = indexPath!.row
+        var index = indexPath.row
         var data = self.dataArray[index] as! NSDictionary
         return  YRCommnentsCell.cellHeightByData(data)
     }
@@ -202,6 +204,36 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    func btnAuditClicked(){
+       var alertView = UIAlertView()
+        alertView.title = "举报"
+        alertView.message = "这条状态违反whoop的有关规定"
+        alertView.addButtonWithTitle("取消")
+        alertView.addButtonWithTitle("确定")
+        alertView.cancelButtonIndex = 0
+        alertView.delegate = self
+        alertView.show()
+        
+    }
+    
+    func alertView(alertView:UIAlertView, clickedButtonAtIndex buttonIndex:Int){
+        if buttonIndex != alertView.cancelButtonIndex{
+            var url = FileUtility.getUrlDomain() + "post/reportPost?postId=\(self.jokeId)&uid=\(FileUtility.getUserId())"
+            
+            YRHttpRequest.requestWithURL(url,completionHandler:{ data in
+                
+                if data as! NSObject == NSNull()
+                {
+                    UIView.showAlertView("提示",message:"加载失败")
+                    return
+                }
+                
+                UIView.showAlertView("提示",message:"举报成功")
+                
+            })
+
+        }
+    }
 
     /*
     // #pragma mark - Navigation
