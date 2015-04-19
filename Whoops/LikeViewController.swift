@@ -29,8 +29,8 @@ class LikeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func load_Data(){
-        self.uid = FileUtility.getUserId()
-        var url = FileUtility.getUrlDomain() + "msg/getMsgByUId?uid=\(self.uid)&pageNum=\(self.page)"
+        //var url = FileUtility.getUrlDomain() + "msg/getMsgByUId?uid=\(self.uid)&pageNum=\(self.page)"
+        var url = "http://104.131.91.181:8080/whoops/msg/getMsgByUId?uid=\(self.uid)&pageNum=\(self.page)"
         YRHttpRequest.requestWithURL(url,completionHandler:{ data in
             
             if data as! NSObject == NSNull()
@@ -64,12 +64,14 @@ class LikeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self._db.count
+        //return 10
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? LikeViewCell
         var index = indexPath.row
         cell?.data = _db[index] as! NSDictionary
+        //cell?.title.text = "Hello World!!"
         return cell!
     }
 

@@ -24,10 +24,10 @@ class LikeViewCell: UITableViewCell {
     override func layoutSubviews(){
         super.layoutSubviews()
         
-        if self.data.stringAttributeForKey("msg") != NSNull() {
-            self.title.text = self.data.stringAttributeForKey("msg")
-        }
-        
+        //if self.data.stringAttributeForKey("msg") != NSNull() {
+        //    self.title.text = self.data.stringAttributeForKey("msg")
+        //}
+        self.title.text = "You have a msg!!"
         
     }
     
