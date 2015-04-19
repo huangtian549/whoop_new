@@ -34,6 +34,7 @@ class YRJokeCell: UITableViewCell {
     var mainWidth:CGFloat = 0
     
     var postId:String = ""
+    var imgUrls:[String] = [String]()
     //let avatarPlaceHolder = UIImage(named: "avatar.jpg")
     
     @IBAction func shareBtnClicked()
@@ -69,6 +70,14 @@ class YRJokeCell: UITableViewCell {
         self.contentLabel!.setHeight(height)
         self.contentLabel!.text = content
         
+
+        
+        for subview in containsPicView.subviews{
+            if subview is UIImageView{
+                subview.removeFromSuperview()
+            }
+        }
+        
         var imgSrc = self.data.stringAttributeForKey("image") as NSString
         if imgSrc.length == 0
         {
@@ -77,18 +86,19 @@ class YRJokeCell: UITableViewCell {
         }
         else
         {
-            
-            var imgUrls:[String] = imgSrc.componentsSeparatedByString(",") as! [String]
+            containsPicView.hidden = false
+            imgUrls = imgSrc.componentsSeparatedByString(",") as! [String]
             var count = imgUrls.count
             if imgUrls.count <= 3 {
                 var imgWidth = (mainWidth - 10 - 10 - 20 - 100)/CGFloat(count)
                 var i = 0
                 for imgUrl in imgUrls {
                     var imgView = UIImageView()
+                    imgView.userInteractionEnabled = true
                     var tap = UITapGestureRecognizer(target: self, action: "imageViewTapped:")
                     imgView.addGestureRecognizer(tap)
                     var imagURL = FileUtility.getUrlImage() + imgUrl
-                    containsPicView.hidden = false
+                    imgView.tag = i
                     imgView.setImage(imagURL,placeHolder: UIImage(named: "Logoo.png"))
                     
                     i++
@@ -103,10 +113,11 @@ class YRJokeCell: UITableViewCell {
                 var i = 0
                 for imgUrl in imgUrls {
                     var imgView = UIImageView()
+                    imgView.userInteractionEnabled = true
                     var tap = UITapGestureRecognizer(target: self, action: "imageViewTapped:")
                     imgView.addGestureRecognizer(tap)
                     var imagURL = FileUtility.getUrlImage() + imgUrl
-                    containsPicView.hidden = false
+                    imgView.tag = i
                     imgView.setImage(imagURL,placeHolder: UIImage(named: "Logoo.png"))
                     
                     i++
@@ -203,7 +214,8 @@ class YRJokeCell: UITableViewCell {
     
     func imageViewTapped(sender:UITapGestureRecognizer)
     {
-        NSNotificationCenter.defaultCenter().postNotificationName("imageViewTapped", object:self.largeImageURL)
+        var i:Int = sender.view!.tag
+        NSNotificationCenter.defaultCenter().postNotificationName("imageViewTapped", object:self.imgUrls[i])
         
     }
     

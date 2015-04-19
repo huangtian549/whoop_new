@@ -80,7 +80,7 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.tableView!.dataSource = self;
         
         var myTabbar :UIView = UIView(frame: CGRectMake(0,49,width,49))
-        myTabbar.backgroundColor = UIColor.redColor()
+        myTabbar.backgroundColor = UIColor.blueColor()
         self.view.addSubview(myTabbar)
         
         var count = itemArray.count
@@ -93,8 +93,8 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
             button.tag = index+100
             var title = itemArray[index]
             button.setTitle(title, forState: UIControlState.Normal)
-            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-            button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected)
+            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
             
             button.addTarget(self, action: "tabBarButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
             myTabbar.addSubview(button)
