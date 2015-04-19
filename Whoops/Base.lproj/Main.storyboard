@@ -699,7 +699,7 @@
                                 <rect key="frame" x="0.0" y="363" width="375" height="62"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email or Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zwK-Yo-wLK">
-                                        <rect key="frame" x="85" y="22" width="231" height="30"/>
+                                        <rect key="frame" x="85" y="22" width="230" height="30"/>
                                         <color key="backgroundColor" red="0.94901960784313721" green="0.95686274509803915" blue="0.96078431372549022" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Bwd-K2-aX5"/>
@@ -729,11 +729,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acr-i5-miC">
-                                        <rect key="frame" x="339" y="20" width="28" height="27"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="27" id="J02-ej-EzC"/>
-                                            <constraint firstAttribute="width" constant="28" id="Jov-AF-Vf7"/>
-                                        </constraints>
+                                        <rect key="frame" x="338" y="20" width="29" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -751,17 +747,18 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="acr-i5-miC" firstAttribute="leading" secondItem="zwK-Yo-wLK" secondAttribute="trailing" constant="23" id="2df-NE-qIN"/>
+                                    <constraint firstItem="acr-i5-miC" firstAttribute="top" secondItem="obV-Az-6ZH" secondAttribute="top" constant="20" id="2gP-7e-rhH"/>
                                     <constraint firstAttribute="height" constant="72" id="3NB-ex-PIh"/>
-                                    <constraint firstAttribute="trailing" secondItem="acr-i5-miC" secondAttribute="trailing" constant="8" id="6w5-dA-TiM"/>
+                                    <constraint firstAttribute="bottom" secondItem="acr-i5-miC" secondAttribute="bottom" constant="21" id="Hc2-Ga-qd7"/>
+                                    <constraint firstAttribute="trailing" secondItem="acr-i5-miC" secondAttribute="trailing" constant="8" id="Lxz-05-Al6"/>
                                     <constraint firstItem="5rU-iV-n28" firstAttribute="leading" secondItem="obV-Az-6ZH" secondAttribute="leading" constant="8" id="MNC-fJ-rbG"/>
                                     <constraint firstItem="zwK-Yo-wLK" firstAttribute="leading" secondItem="OVx-rt-BNH" secondAttribute="trailing" constant="8" id="Q9L-30-t6l"/>
                                     <constraint firstAttribute="centerY" secondItem="5rU-iV-n28" secondAttribute="centerY" id="Qcf-b0-HUV"/>
                                     <constraint firstItem="zwK-Yo-wLK" firstAttribute="bottom" secondItem="acr-i5-miC" secondAttribute="bottom" id="TDm-gS-Ssd"/>
+                                    <constraint firstItem="acr-i5-miC" firstAttribute="leading" secondItem="zwK-Yo-wLK" secondAttribute="trailing" constant="23" id="ZSD-yy-LJg"/>
                                     <constraint firstItem="acr-i5-miC" firstAttribute="leading" secondItem="zwK-Yo-wLK" secondAttribute="trailing" constant="26" id="bHJ-yB-fCu"/>
                                     <constraint firstItem="zwK-Yo-wLK" firstAttribute="bottom" secondItem="5rU-iV-n28" secondAttribute="bottom" id="eCw-df-W91"/>
                                     <constraint firstItem="zwK-Yo-wLK" firstAttribute="baseline" secondItem="acr-i5-miC" secondAttribute="firstBaseline" id="eYO-Bs-KMT"/>
-                                    <constraint firstAttribute="centerY" secondItem="acr-i5-miC" secondAttribute="centerY" id="fT8-c9-wD9"/>
                                     <constraint firstItem="acr-i5-miC" firstAttribute="leading" secondItem="zwK-Yo-wLK" secondAttribute="trailing" constant="26" id="imb-iH-JKX"/>
                                     <constraint firstAttribute="centerY" secondItem="OVx-rt-BNH" secondAttribute="centerY" id="nfv-5Y-PGU"/>
                                     <constraint firstItem="OVx-rt-BNH" firstAttribute="leading" secondItem="5rU-iV-n28" secondAttribute="trailing" constant="8" id="qQB-cG-RI7"/>
@@ -802,7 +799,6 @@
                     <connections>
                         <outlet property="contentTextView" destination="Aev-Gh-xwJ" id="o9U-Gw-hnW"/>
                         <outlet property="countWordLabel" destination="acr-i5-miC" id="sch-Ki-2cL"/>
-                        <outlet property="nickNameText" destination="zwK-Yo-wLK" id="AaG-VL-U7x"/>
                         <outlet property="photoButton" destination="5rU-iV-n28" id="nCD-10-VL3"/>
                         <outlet property="sendItem" destination="9B2-8O-Yug" id="uMN-ma-Frw"/>
                         <outlet property="toolView" destination="obV-Az-6ZH" id="dJq-8n-sg7"/>
