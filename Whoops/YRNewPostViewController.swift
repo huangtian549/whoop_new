@@ -23,7 +23,7 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var nickName: UITextField!
     
     @IBOutlet weak var photoButton: UIButton!
-    @IBOutlet weak var nickNameText: UITextField!
+    @IBOutlet weak var nickNameText: UITextView!
     
     @IBOutlet weak var toolView: UIView!
     @IBOutlet weak var countWordLabel: UILabel!
