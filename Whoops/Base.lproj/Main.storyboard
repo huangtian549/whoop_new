@@ -811,11 +811,11 @@
             </objects>
             <point key="canvasLocation" x="-586.5" y="-18.5"/>
         </scene>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="xTz-8v-nCD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3o5-aT-AWB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="Home" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="" image="Home" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4PD-Rk-w2Z">
@@ -836,11 +836,11 @@
             </objects>
             <point key="canvasLocation" x="1707" y="-934"/>
         </scene>
-        <!--Likes-->
+        <!--Navigation Controller-->
         <scene sceneID="TXb-mg-Vrc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xGf-zK-mVk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Likes" image="Likes" id="KSg-c0-Ax4"/>
+                    <tabBarItem key="tabBarItem" title="" image="Likes" id="KSg-c0-Ax4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hol-UE-02b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -859,11 +859,11 @@
             </objects>
             <point key="canvasLocation" x="2519" y="600"/>
         </scene>
-        <!--Search-->
+        <!--Navigation Controller-->
         <scene sceneID="eEI-yf-JiH">
             <objects>
                 <navigationController storyboardIdentifier="searchViewId" id="NkG-nW-3xJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="Search" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="Search" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aXy-dA-xwa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -928,11 +928,11 @@
             </objects>
             <point key="canvasLocation" x="380" y="-852"/>
         </scene>
-        <!--Post-->
+        <!--Navigation Controller-->
         <scene sceneID="4Oz-rV-w9i">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oNg-8W-Ayf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Post" image="Post" id="1Bj-CC-xy5"/>
+                    <tabBarItem key="tabBarItem" title="" image="Post" id="1Bj-CC-xy5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iHA-cn-0yV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1220,11 +1220,11 @@
             </objects>
             <point key="canvasLocation" x="2437" y="1274"/>
         </scene>
-        <!--Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="G8k-Al-hug">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WsP-R3-uEW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="Profile" id="PXp-22-F1D"/>
+                    <tabBarItem key="tabBarItem" title="" image="Profile" id="PXp-22-F1D"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3jf-sn-Ds8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1256,7 +1256,7 @@
         <image name="Settings" width="34" height="34"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="35P-N4-up8"/>
+        <segue reference="3dj-WA-gq2"/>
         <segue reference="UoM-tl-3ag"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
