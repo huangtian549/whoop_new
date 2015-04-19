@@ -142,6 +142,7 @@
                 <outlet property="containsPicView" destination="v3p-Ue-dcd" id="EsT-aU-9Dj"/>
                 <outlet property="contentLabel" destination="amO-0b-sdb" id="9hT-od-NiI"/>
                 <outlet property="dateTimeLabel" destination="3BP-gT-iGq" id="Xzf-if-2j6"/>
+                <outlet property="favorPost" destination="NXA-Zi-en3" id="FV9-XL-PLz"/>
                 <outlet property="likeHotLabel" destination="H9I-yD-XFR" id="xFi-ah-bcm"/>
                 <outlet property="nickLabel" destination="5xu-1N-A5k" id="6fl-xc-FYD"/>
             </connections>

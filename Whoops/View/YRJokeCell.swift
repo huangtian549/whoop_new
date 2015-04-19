@@ -33,6 +33,7 @@ class YRJokeCell: UITableViewCell {
     
     var mainWidth:CGFloat = 0
     
+    @IBOutlet weak var favorPost: UIImageView!
     var postId:String = ""
     var imgUrls:[String] = [String]()
     //let avatarPlaceHolder = UIImage(named: "avatar.jpg")
@@ -48,8 +49,9 @@ class YRJokeCell: UITableViewCell {
         self.selectionStyle = .None
         mainWidth = UIScreen.mainScreen().bounds.width
        
-//        var tap = UITapGestureRecognizer(target: self, action: "imageViewTapped:")
-//        self.pictureView!.addGestureRecognizer(tap)
+        favorPost.userInteractionEnabled = true
+        var tap = UITapGestureRecognizer(target: self, action: "favorViewTapped:")
+        favorPost!.addGestureRecognizer(tap)
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -216,6 +218,24 @@ class YRJokeCell: UITableViewCell {
     {
         var i:Int = sender.view!.tag
         NSNotificationCenter.defaultCenter().postNotificationName("imageViewTapped", object:self.imgUrls[i])
+        
+    }
+    
+    func favorViewTapped(sender:UITapGestureRecognizer)
+    {
+        var url = FileUtility.getUrlDomain() + "favorPost/add?postId=\(postId)&uid=\(FileUtility.getUserId())"
+        
+        YRHttpRequest.requestWithURL(url,completionHandler:{ data in
+            
+            if data as! NSObject == NSNull()
+            {
+                UIView.showAlertView("提示",message:"加载失败")
+                return
+            }
+            
+            
+            
+        })
         
     }
     

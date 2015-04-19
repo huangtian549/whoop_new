@@ -337,6 +337,7 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.title = itemArray[index-100] as String
         page = 1
         self.dataArray = NSMutableArray()
+        self.type = index - 100
         loadData(index-100)
         
     }
