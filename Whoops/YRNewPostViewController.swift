@@ -23,8 +23,8 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var nickName: UITextField!
     
     @IBOutlet weak var photoButton: UIButton!
-    @IBOutlet weak var nickNameText: UITextView!
     
+    @IBOutlet weak var nickNameText: UITextField!
     @IBOutlet weak var toolView: UIView!
     @IBOutlet weak var countWordLabel: UILabel!
     @IBOutlet weak var sendButton: UIBarButtonItem!
@@ -83,9 +83,9 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBAction func photoButtonClick(sender: AnyObject) {
         var actionSheet = UIActionSheet()
-//        actionSheet.addButtonWithTitle("取消")
-//        actionSheet.addButtonWithTitle("打开照相机")
-//        actionSheet.addButtonWithTitle("从手机相册选择")
+        //        actionSheet.addButtonWithTitle("取消")
+        //        actionSheet.addButtonWithTitle("打开照相机")
+        //        actionSheet.addButtonWithTitle("从手机相册选择")
         if imgList.count >= 6 {
             UIView.showAlertView("Warning",message:"The max count of photos can not be more than 6")
             return
@@ -148,6 +148,17 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
         
         img = info[UIImagePickerControllerEditedImage] as! UIImage
         var imgView = UIImageView()
+        imgView.userInteractionEnabled = true
+        imgView.tag = imgList.count
+//        var deleteTap = UILongPressGestureRecognizer(target: self, action: "deleteImageViewTapped:")
+//        //        deleteTap.numberOfTapsRequired = 1
+//        imgView.addGestureRecognizer(deleteTap)
+        
+        var tap = UITapGestureRecognizer(target: self, action: "imageViewTapped:")
+        imgView.addGestureRecognizer(tap)
+        
+        
+        
         imgView.image = img
         if imgList.count < 6 {
             imgList.append(imgView)
@@ -158,7 +169,7 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
                 var tempWidth = 10 * imgList.count + (imgList.count-1) * Int(imgWidth)
                 imgView.frame = CGRectMake(CGFloat(tempWidth), height/2  - imgWidth, imgWidth, imgWidth)
                 self.view.addSubview(imgView)
-//                toolView.frame = CGRectMake(0, height/2+200, width-300, 62)
+                //                toolView.frame = CGRectMake(0, height/2+200, width-300, 62)
                 toolViewHeighContraint.setValue(200, forKey: "Constant")
             }else{
                 var tempWidth = 10 * (imgList.count-3) + (imgList.count-4) * Int(imgWidth)
@@ -190,6 +201,63 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
         
     }
     
+    func imageViewTapped(sender:UITapGestureRecognizer)
+    {
+        var i:Int = sender.view!.tag
+        var image = self.imgList[i].image
+        var window = UIApplication.sharedApplication().keyWindow
+        var backgroundView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height))
+        backgroundView.backgroundColor = UIColor.blackColor()
+        backgroundView.alpha = 0
+        var imageView = UIImageView(frame: self.imgList[i].frame)
+        
+        imageView.image = image
+        //        imageView.tag = i + 1
+        backgroundView.addSubview(imageView)
+        window?.addSubview(backgroundView)
+        var hide = UITapGestureRecognizer(target: self, action: "hideImage:")
+        
+        imageView.userInteractionEnabled = true
+        imageView.addGestureRecognizer(hide)
+        UIView.animateWithDuration(0.3, animations:{ () in
+            var vsize = UIScreen.mainScreen().bounds.size
+            imageView.frame = CGRect(x:0.0, y: 0.0, width: vsize.width, height: vsize.height)
+            imageView.contentMode = .ScaleAspectFit
+            backgroundView.alpha = 1
+            }, completion: {(finished:Bool) in })
+        
+        
+    }
+    
+    func hideImage(sender: UITapGestureRecognizer){
+        var i:Int = sender.view!.tag
+        var backgroundView = sender.view as UIView?
+        if let view = backgroundView{
+            UIView.animateWithDuration(0.1,
+                animations:{ () in
+                    var imageView = view.viewWithTag(i) as! UIImageView
+                    imageView.frame = self.imgList[i].frame
+                    imageView.alpha = 0
+                    
+                },
+                completion: {(finished:Bool) in
+                    view.alpha = 0
+                    view.superview?.removeFromSuperview()
+                    view.removeFromSuperview()
+            })
+        }
+    }
+    
+    func deleteImageViewTapped(sender:UITapGestureRecognizer){
+        var i:Int = sender.view!.tag
+        if self.imgList.count == 0 || self.imgList.count < i {
+            return
+        }
+        var imageView = self.imgList[i]
+        self.imgList.removeAtIndex(i)
+        imageView.removeFromSuperview()
+    }
+    
     
     //cancel后执行的方法
     func imagePickerControllerDidCancel(picker: UIImagePickerController){
@@ -197,26 +265,8 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
         
     }
     
-    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //
-    //        if segue.identifier == "sendSegue" {
-    //            var content:String = contentTextView!.text
-    //            println(content)
-    //            if countElements(content) == 0 {
-    //                UIView.showAlertView("提示",message:"内容不能为空")
-    //
-    //            }else{
-    //                if imgView.image == nil {
-    //                    createNewPost()
-    //                }else{
-    //                    postWithPic()
-    //                }
-    //            }
-    //
-    //        }
-    //
-    //    }
-    //
+    
+    
     func updateLocation(latitude:Double, longitude:Double) {
         self.latitude = latitude
         self.longitude = longitude
@@ -346,8 +396,8 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
         let filename = "file"
         for img in imgList {
             let data:NSData = UIImageJPEGRepresentation(img.image, 0.3)
-    
-        
+            
+            
             body.appendString("--\(boundary)\r\n")
             body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
             body.appendString("Content-Type: application/octet-stream\r\n\r\n")
@@ -494,10 +544,10 @@ class YRNewPostViewController: UIViewController, UIImagePickerControllerDelegate
             task.resume()
             
             //            var returnData = NSURLConnection.sendSynchronousRequest(request, returningResponse: nil, error: nil)
-            //            
+            //
             //            if returnData != nil{
             //                var returnString = NSString(data: returnData!, encoding: NSUTF8StringEncoding)
-            //            
+            //
             //                println("returnString \(returnString)")
             //            }
         }

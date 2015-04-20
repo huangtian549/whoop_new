@@ -799,6 +799,7 @@
                     <connections>
                         <outlet property="contentTextView" destination="Aev-Gh-xwJ" id="o9U-Gw-hnW"/>
                         <outlet property="countWordLabel" destination="acr-i5-miC" id="sch-Ki-2cL"/>
+                        <outlet property="nickNameText" destination="zwK-Yo-wLK" id="QKT-xe-L5F"/>
                         <outlet property="photoButton" destination="5rU-iV-n28" id="nCD-10-VL3"/>
                         <outlet property="sendItem" destination="9B2-8O-Yug" id="uMN-ma-Frw"/>
                         <outlet property="toolView" destination="obV-Az-6ZH" id="dJq-8n-sg7"/>
