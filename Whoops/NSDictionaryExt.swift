@@ -3,7 +3,7 @@
 //  JokeClient-Swift
 //
 //  Created by YANGReal on 15-2-17.
-//  Copyright (c) 2015年 naikun. All rights reserved.
+//  Copyright (c) 2015y naikun. All rights reserved.
 //
 
 import UIKit

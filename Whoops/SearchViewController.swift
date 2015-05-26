@@ -36,11 +36,19 @@ class SearchViewController: UIViewController,UITableViewDelegate, UITableViewDat
         self.resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
-            controller.searchBar.backgroundColor = UIColor.clearColor()
+            controller.searchBar.barTintColor = UIColor(netHex: 0x3593DD)
+            var textfield = controller.searchBar.valueForKey("_searchField") as? UITextField
+            textfield?.backgroundColor = UIColor(netHex: 0x2E8BD1)
+            textfield?.textColor = UIColor.whiteColor()
             controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.sizeToFit()
-            controller.searchBar.placeholder = "Search your School"
+            
+            textfield?.attributedPlaceholder = NSAttributedString(string:"Search your School",
+                attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+//            
+//            controller.searchBar.placeholder = "Search your School"
             self.searchTableView.tableHeaderView = controller.searchBar
+//            self.searchTableView.tableHeaderView?.backgroundColor = UIColor(netHex: 0x3593DD)
             return controller
         })()
         
@@ -247,15 +255,13 @@ class SearchViewController: UIViewController,UITableViewDelegate, UITableViewDat
         {
             switch (section){
             case 0: headCell.header.text = "My Favorite"
+                headCell.headImg.image = UIImage(named: "Like")
             case 1: headCell.header.text = "Nearby"
+                headCell.headImg.image = UIImage(named: "Nearby")
             default: headCell.header.text = nil
+                headCell.headImg.image = nil
             }
-            
-            switch (section){
-            case 0: headCell.headImg.image = UIImage(named: "unlike")
-            case 1: headCell.headImg.image = UIImage(named: "Nearby")
-            default: headCell.headImg.image = nil
-            }
+        
         }
         return headCell
     }

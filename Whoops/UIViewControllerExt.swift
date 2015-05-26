@@ -3,7 +3,7 @@
 //  Whoop
 //
 //  Created by alidao3 on 15/4/9.
-//  Copyright (c) 2015年 Li Jiatan. All rights reserved.
+//  Copyright (c) 2015y Li Jiatan. All rights reserved.
 //
 
 import UIKit

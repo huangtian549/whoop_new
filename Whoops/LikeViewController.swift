@@ -29,7 +29,7 @@ class LikeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func load_Data(){
-        var url = FileUtility.getUrlDomain() + "msg/getMsgByUId?uid=97&pageNum=\(self.page)"
+        var url = FileUtility.getUrlDomain() + "msg/getMsgByUId?uid=\(self.uid)&pageNum=\(self.page)"
         //var url = "http://104.131.91.181:8080/whoops/msg/getMsgByUId?uid=97&pageNum=1"
         YRHttpRequest.requestWithURL(url,completionHandler:{ data in
             

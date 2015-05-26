@@ -3,7 +3,7 @@
 //  Whoops
 //
 //  Created by huangyao on 15-2-26.
-//  Copyright (c) 2015年 Li Jiatan. All rights reserved.
+//  Copyright (c) 2015y Li Jiatan. All rights reserved.
 //
 
 import UIKit

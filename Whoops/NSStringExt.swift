@@ -3,7 +3,7 @@
 //  JokeClient-Swift
 //
 //  Created by YANGReal on 14-6-6.
-//  Copyright (c) 2014年 YANGReal. All rights reserved.
+//  Copyright (c) 2014y YANGReal. All rights reserved.
 //
 import UIKit
 import Foundation
@@ -30,7 +30,7 @@ extension String {
     {
         var ts = timeStamp.doubleValue
         var  formatter = NSDateFormatter ()
-        formatter.dateFormat = "yyyy年MM月dd日 HH:MM:ss"
+        formatter.dateFormat = "yyyyyMM月dd日 HH:MM:ss"
         var date = NSDate(timeIntervalSince1970 : ts)
          return  formatter.stringFromDate(date)
         
@@ -61,4 +61,17 @@ extension String {
         return result as String
     }
     
+    func textSizeWithFont(font: UIFont, constrainedToSize size:CGSize) -> CGSize {
+        var textSize:CGSize!
+        if CGSizeEqualToSize(size, CGSizeZero) {
+            let attributes = NSDictionary(object: font, forKey: NSFontAttributeName)
+            textSize = self.sizeWithAttributes(attributes as [NSObject : AnyObject])
+        } else {
+            let option = NSStringDrawingOptions.UsesLineFragmentOrigin
+            let attributes = NSDictionary(object: font, forKey: NSFontAttributeName)
+            let stringRect = self.boundingRectWithSize(size, options: option, attributes: attributes as [NSObject : AnyObject], context: nil)
+            textSize = stringRect.size
+        }
+        return textSize
+    }
 }

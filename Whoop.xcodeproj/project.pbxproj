@@ -54,6 +54,23 @@
 		9B88E2AD1AD6C6FC00B5E051 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B88E2AC1AD6C6FC00B5E051 /* UIColorExt.swift */; };
 		9B88E2AF1AD6C83000B5E051 /* MyUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B88E2AE1AD6C83000B5E051 /* MyUITabBarController.swift */; };
 		9B88E2B11AD6CAFE00B5E051 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B88E2B01AD6CAFE00B5E051 /* UIViewControllerExt.swift */; };
+		E35AA3141B1517FF00D2BC25 /* YRJokeCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35AA3131B1517FF00D2BC25 /* YRJokeCell2.swift */; };
+		E3E00DD11AE9C0FE000DEC8B /* YRNewPostImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E00DD01AE9C0FE000DEC8B /* YRNewPostImageViewController.swift */; };
+		E3E69F4E1AF47ADD001F29F4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F4D1AF47ADD001F29F4 /* Parse.framework */; };
+		E3E69F501AF47AE4001F29F4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F4F1AF47AE4001F29F4 /* Bolts.framework */; };
+		E3E69F521AF47B1F001F29F4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F511AF47B1F001F29F4 /* AudioToolbox.framework */; };
+		E3E69F541AF47B29001F29F4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F531AF47B29001F29F4 /* CFNetwork.framework */; };
+		E3E69F561AF47B34001F29F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F551AF47B34001F29F4 /* CoreGraphics.framework */; };
+		E3E69F581AF47B3F001F29F4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F571AF47B3F001F29F4 /* CoreLocation.framework */; };
+		E3E69F5A1AF47B4F001F29F4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F591AF47B4F001F29F4 /* MobileCoreServices.framework */; };
+		E3E69F5C1AF47B57001F29F4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F5B1AF47B57001F29F4 /* QuartzCore.framework */; };
+		E3E69F5E1AF47B60001F29F4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F5D1AF47B60001F29F4 /* Security.framework */; };
+		E3E69F601AF47B6A001F29F4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F5F1AF47B6A001F29F4 /* StoreKit.framework */; };
+		E3E69F621AF47B79001F29F4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F611AF47B79001F29F4 /* SystemConfiguration.framework */; };
+		E3E69F641AF47B87001F29F4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F631AF47B87001F29F4 /* libz.dylib */; };
+		E3E69F661AF47B90001F29F4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F651AF47B90001F29F4 /* libsqlite3.dylib */; };
+		E3E69F681AF5855D001F29F4 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F671AF5855D001F29F4 /* ParseCrashReporting.framework */; };
+		E3E69F6A1AF58656001F29F4 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E69F691AF58656001F29F4 /* libstdc++.6.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +137,23 @@
 		9B88E2AC1AD6C6FC00B5E051 /* UIColorExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
 		9B88E2AE1AD6C83000B5E051 /* MyUITabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUITabBarController.swift; sourceTree = "<group>"; };
 		9B88E2B01AD6CAFE00B5E051 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+		E35AA3131B1517FF00D2BC25 /* YRJokeCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YRJokeCell2.swift; path = View/YRJokeCell2.swift; sourceTree = "<group>"; };
+		E3E00DD01AE9C0FE000DEC8B /* YRNewPostImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YRNewPostImageViewController.swift; sourceTree = "<group>"; };
+		E3E69F4D1AF47ADD001F29F4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		E3E69F4F1AF47AE4001F29F4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		E3E69F511AF47B1F001F29F4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E3E69F531AF47B29001F29F4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		E3E69F551AF47B34001F29F4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E3E69F571AF47B3F001F29F4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E3E69F591AF47B4F001F29F4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E3E69F5B1AF47B57001F29F4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E3E69F5D1AF47B60001F29F4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E3E69F5F1AF47B6A001F29F4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		E3E69F611AF47B79001F29F4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E3E69F631AF47B87001F29F4 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		E3E69F651AF47B90001F29F4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		E3E69F671AF5855D001F29F4 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
+		E3E69F691AF58656001F29F4 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +161,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3E69F6A1AF58656001F29F4 /* libstdc++.6.dylib in Frameworks */,
+				E3E69F661AF47B90001F29F4 /* libsqlite3.dylib in Frameworks */,
+				E3E69F641AF47B87001F29F4 /* libz.dylib in Frameworks */,
+				E3E69F621AF47B79001F29F4 /* SystemConfiguration.framework in Frameworks */,
+				E3E69F601AF47B6A001F29F4 /* StoreKit.framework in Frameworks */,
+				E3E69F5E1AF47B60001F29F4 /* Security.framework in Frameworks */,
+				E3E69F681AF5855D001F29F4 /* ParseCrashReporting.framework in Frameworks */,
+				E3E69F5C1AF47B57001F29F4 /* QuartzCore.framework in Frameworks */,
+				E3E69F5A1AF47B4F001F29F4 /* MobileCoreServices.framework in Frameworks */,
+				E3E69F581AF47B3F001F29F4 /* CoreLocation.framework in Frameworks */,
+				E3E69F561AF47B34001F29F4 /* CoreGraphics.framework in Frameworks */,
+				E3E69F541AF47B29001F29F4 /* CFNetwork.framework in Frameworks */,
+				E3E69F521AF47B1F001F29F4 /* AudioToolbox.framework in Frameworks */,
+				E3E69F4E1AF47ADD001F29F4 /* Parse.framework in Frameworks */,
+				E3E69F501AF47AE4001F29F4 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +206,7 @@
 				8690039C1AA78F1000D46DED /* PostTableViewCell.swift */,
 				239A38461A9FFB13000976E0 /* YRCommnentsCell.swift */,
 				239A38471A9FFB13000976E0 /* YRCommnentsCell.xib */,
+				E35AA3131B1517FF00D2BC25 /* YRJokeCell2.swift */,
 				239A38481A9FFB13000976E0 /* YRImageZoomingView.swift */,
 				239A38491A9FFB13000976E0 /* YRJokeCell.swift */,
 				239A384A1A9FFB13000976E0 /* YRJokeCell.xib */,
@@ -187,6 +237,7 @@
 				86A2E6471AAC9ECC00499C13 /* UniversityViewController.swift */,
 				9B88E2AE1AD6C83000B5E051 /* MyUITabBarController.swift */,
 				86D0A4FA1AE019AB00D86953 /* LikeViewController.swift */,
+				E3E00DD01AE9C0FE000DEC8B /* YRNewPostImageViewController.swift */,
 			);
 			name = viewController;
 			sourceTree = "<group>";
@@ -210,6 +261,21 @@
 		868A30471A9E972700FC9EF9 = {
 			isa = PBXGroup;
 			children = (
+				E3E69F691AF58656001F29F4 /* libstdc++.6.dylib */,
+				E3E69F651AF47B90001F29F4 /* libsqlite3.dylib */,
+				E3E69F631AF47B87001F29F4 /* libz.dylib */,
+				E3E69F671AF5855D001F29F4 /* ParseCrashReporting.framework */,
+				E3E69F611AF47B79001F29F4 /* SystemConfiguration.framework */,
+				E3E69F5F1AF47B6A001F29F4 /* StoreKit.framework */,
+				E3E69F5D1AF47B60001F29F4 /* Security.framework */,
+				E3E69F5B1AF47B57001F29F4 /* QuartzCore.framework */,
+				E3E69F591AF47B4F001F29F4 /* MobileCoreServices.framework */,
+				E3E69F571AF47B3F001F29F4 /* CoreLocation.framework */,
+				E3E69F551AF47B34001F29F4 /* CoreGraphics.framework */,
+				E3E69F531AF47B29001F29F4 /* CFNetwork.framework */,
+				E3E69F511AF47B1F001F29F4 /* AudioToolbox.framework */,
+				E3E69F4F1AF47AE4001F29F4 /* Bolts.framework */,
+				E3E69F4D1AF47ADD001F29F4 /* Parse.framework */,
 				868A30521A9E972700FC9EF9 /* Whoops */,
 				868A306A1A9E972700FC9EF9 /* WhoopsTests */,
 				868A30511A9E972700FC9EF9 /* Products */,
@@ -281,6 +347,7 @@
 				868A304C1A9E972700FC9EF9 /* Sources */,
 				868A304D1A9E972700FC9EF9 /* Frameworks */,
 				868A304E1A9E972700FC9EF9 /* Resources */,
+				E3E69F6B1AF58863001F29F4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -378,6 +445,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E3E69F6B1AF58863001F29F4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=/usr/local/bin:$PATH\ncd /Users/liunaikun/Documents/whoop_new/parse\n\nparse symbols -p \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		868A304C1A9E972700FC9EF9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -397,6 +480,7 @@
 				2363F9941AA00913009957D1 /* NSDictionaryExt.swift in Sources */,
 				86A2E6481AAC9ECC00499C13 /* UniversityViewController.swift in Sources */,
 				86D0A4F81AE012A100D86953 /* LikeViewCell.swift in Sources */,
+				E35AA3141B1517FF00D2BC25 /* YRJokeCell2.swift in Sources */,
 				868A30561A9E972700FC9EF9 /* AppDelegate.swift in Sources */,
 				9B88E2B11AD6CAFE00B5E051 /* UIViewControllerExt.swift in Sources */,
 				2363F99C1AA00FBC009957D1 /* YRNewPostViewController.swift in Sources */,
@@ -411,6 +495,7 @@
 				8698ECBD1AAA16CE000E04E6 /* SearchHeadCell.swift in Sources */,
 				86450F3F1AACB254001D6CE8 /* MyPostCommentViewController.swift in Sources */,
 				239A384F1A9FFB13000976E0 /* YRImageZoomingView.swift in Sources */,
+				E3E00DD11AE9C0FE000DEC8B /* YRNewPostImageViewController.swift in Sources */,
 				732E123E1AB3A57C00E7F925 /* NSMutableData.swift in Sources */,
 				868A30581A9E972700FC9EF9 /* FirstViewController.swift in Sources */,
 				239A38411A9FF414000976E0 /* FileUtility.swift in Sources */,
@@ -538,7 +623,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Whoops/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Whoop;
 				SWIFT_OBJC_BRIDGING_HEADER = "Whoops/Swift-Bridging-OC.h";
@@ -549,7 +639,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Whoops/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Whoop;
 				SWIFT_OBJC_BRIDGING_HEADER = "Whoops/Swift-Bridging-OC.h";

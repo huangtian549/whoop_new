@@ -3,7 +3,7 @@
 //  JokeClient-Swift
 //
 //  Created by YANGReal on 14-6-7.
-//  Copyright (c) 2014年 YANGReal. All rights reserved.
+//  Copyright (c) 2014y YANGReal. All rights reserved.
 //
 
 import UIKit
@@ -68,7 +68,7 @@ class YRCommentsViewController: UIViewController,UITableViewDelegate,UITableView
         self.sendView?.frame = CGRectMake(0, height - 50 , width, 50)
         self.view.addSubview(sendView!)
 
-        let btn = UIBarButtonItem(image: UIImage(named: "Like.png"), landscapeImagePhone: UIImage(named: "Like.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "btnAuditClicked")
+        let btn = UIBarButtonItem(image: UIImage(named: "info"), landscapeImagePhone: UIImage(named: "info"), style: UIBarButtonItemStyle.Plain, target: self, action: "btnAuditClicked")
         self.navigationItem.rightBarButtonItem = btn
         
         loadPostData()

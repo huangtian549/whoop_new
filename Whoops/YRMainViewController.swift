@@ -3,14 +3,13 @@
 //  Whoops
 //
 //  Created by huangyao on 15-2-26.
-//  Copyright (c) 2015年 Li Jiatan. All rights reserved.
+//  Copyright (c) 2015y Li Jiatan. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import CoreLocation
-
-
+//import YRJokeCell2
 
 class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, CLLocationManagerDelegate, YRRefreshViewDelegate{
     
@@ -35,13 +34,11 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     var type:Int = 0
     
-    let itemArray = ["最新","最热","收藏","历史最热"]
+    let itemArray = ["New","Hot","Favorite","All time Hot"]
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -79,31 +76,37 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.tableView!.delegate = self;
         self.tableView!.dataSource = self;
         
-        var myTabbar :UIView = UIView(frame: CGRectMake(0,49,width,49))
-        myTabbar.backgroundColor = UIColor.blueColor()
-        self.view.addSubview(myTabbar)
-        
-        var count = itemArray.count
-        
-        for var index = 0; index < count; index++
-        {
-            var btnWidth = (CGFloat)(index*80)
-            var button  = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
-            button.frame = CGRectMake(btnWidth, 0,80,49)
-            button.tag = index+100
-            var title = itemArray[index]
-            button.setTitle(title, forState: UIControlState.Normal)
-            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
-            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
-            
-            button.addTarget(self, action: "tabBarButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-            myTabbar.addSubview(button)
-            if index == 0
-            {
-                button.selected = true
-            }
-        }
-        
+        var titleImgView = UIImageView(frame:CGRectMake(0, 0, 64, 28))
+        titleImgView.image = UIImage(named: "whook")
+        self.navigationItem.titleView = titleImgView
+//        var myTabbar :UIView = UIView(frame: CGRectMake(0,64,width,32))
+//        myTabbar.backgroundColor = UIColor(red: 0.164, green: 0.49, blue: 0.83, alpha: 1.0)
+//
+//        
+//        self.view.addSubview(myTabbar)
+//        
+//        var count = itemArray.count
+//        
+//        for var index = 0; index < count; index++
+//        {
+//            var btnWidth = (CGFloat)(index*80)
+//            var button  = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+//            button.frame = CGRectMake(btnWidth, 0,80,32)
+//            button.tag = index+100
+//            var title = itemArray[index]
+//            button.setTitle(title, forState: UIControlState.Normal)
+//            button.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 0.7), forState: UIControlState.Normal)
+//            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
+//            button.titleLabel?.font = UIFont.systemFontOfSize(14)
+////            button.backgroundColor = UIColor.brownColor()
+//            button.addTarget(self, action: "tabBarButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+//            myTabbar.addSubview(button)
+//            if index == 0
+//            {
+//                button.selected = true
+//            }
+//        }
+//        
         
         
         var nib = UINib(nibName:"YRJokeCell", bundle: nil)
@@ -239,10 +242,18 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? YRJokeCell
+//        var cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? YRJokeCell
         var index = indexPath.row
+        
+       NSLog("index: %ld", index);
         var data = self.dataArray[index] as! NSDictionary
-        cell!.data = data
+//        cell!.data = data
+        let cellIdentifier : String = "cellIdentifier"
+        var cell :YRJokeCell2? = tableView.dequeueReusableCellWithIdentifier(identifier) as? YRJokeCell2
+        
+        cell = YRJokeCell2(style: .Default, reuseIdentifier: identifier)
+        cell?.setCellUp(data);
+        cell?.backgroundColor = UIColor(red:246.0/255.0 , green:246.0/255.0 , blue:246.0/255.0 , alpha: 1.0);
         return cell!
     }
     
@@ -250,7 +261,7 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
     {
         var index = indexPath.row
         var data = self.dataArray[index] as! NSDictionary
-        return  YRJokeCell.cellHeightByData(data)
+        return  YRJokeCell2.cellHeightByData(data)
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
@@ -310,9 +321,7 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
         //        self.textLabel.text = "get location error"
     }
     
-    
-    func tabBarButtonClicked(sender:UIButton)
-    {
+    @IBAction func tabBarButtonClicked(sender: AnyObject) {
         var index = sender.tag
         
         for var i = 0;i<4;i++
@@ -327,19 +336,11 @@ class YRMainViewController: UIViewController,UITableViewDelegate,UITableViewData
                 button.selected = false
             }
         }
-        
-        //        UIView.animateWithDuration( 0.3,
-        //            animations: {
-        //
-        //                self.slider!.frame = CGRectMake(CGFloat(index-100)*80,0,80,49)
-        //
-        //        })
-        //self.title = itemArray[index-100] as String
         page = 1
         self.dataArray = NSMutableArray()
+        self.tableView!.reloadData()
         self.type = index - 100
         loadData(index-100)
-        
     }
     
     
