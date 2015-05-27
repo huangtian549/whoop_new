@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A283o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -22,7 +22,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfH-wT-rNK">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="2873"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">The Whoop services and mobile app (collectively, the “Services”) offer users a forum to interact with other Whoop users in the same area, in order to post and share comments, and to respond to comments posted by others. In this Privacy Policy (“Policy”), we describe how we collect, use, and disclose information that we obtain about users of our Services, which are available via mobile applications offered in the Apple and Android app stores. Your use of our Services, and any dispute over privacy, is subject to this Policy and our Terms of Service, including its applicable limitations on damages and the resolution of disputes, which is available at [Terms of Use] section and incorporated by reference into this Policy.
+                                <mutableString key="text">The Whoop services and mobile app (collectively, the “Services”) offer users a forum to interact with other Whoop users in the same area, in order to post and share comments, and to respond to comments posted by others. In this Privacy Policy (“Policy”), we describe how we collect, use, and disclose information that we obtain about users of our Services, which are available via mobile applications offered in the Apple and Android app stores. Your use of our Services, and any dispute over privacy, is subject to this Policy and our Terms of Service, including its applicable limitations on damages and the resolution of disputes, which is available at [Terms of Use] section and incorporated by reference into this Policy.
 
 What Information Do We Collect About You and Why?
 
@@ -122,7 +122,7 @@ If you have questions about the privacy aspects of our Services or would like to
 
 Changes to this Policy
 
-This Policy is current as of the Effective Date set forth above. We may change this Policy from time to time, so please be sure to check back periodically. We will post any changes to this Policy on our Site, at service@hellowhoop.com. If we make any changes to this Policy that materially affect our practices with regard to the personal information we have previously collected from you, we will endeavor to provide you with notice in advance of such change by highlighting the change on our Site, or providing notice in our mobile app.</string>
+This Policy is current as of the Effective Date set forth above. We may change this Policy from time to time, so please be sure to check back periodically. We will post any changes to this Policy on our Site, at service@hellowhoop.com. If we make any changes to this Policy that materially affect our practices with regard to the personal information we have previously collected from you, we will endeavor to provide you with notice in advance of such change by highlighting the change on our Site, or providing notice in our mobile app.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
